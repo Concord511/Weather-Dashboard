@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main>
+        <sidebar class="search-column">
+            <h2>Search for a City:</h2>
+            <textarea id="user-input" class="city-input" placeholder="Enter a city name" rows="1"></textarea>
+            <button type="submit" class="search-button">Search</button>
+            <div class="history-container">
+                <!-- <div class="history-item"></div> -->
+            </div>
+        </sidebar>
+
+        <section class="weather-content">
+            <div class="daycast">
+                <card id="this-day" class="main-weather-card">
+                    <div>
+                        <span id="this-day-date" class="card-date"></span>
+                        <i id="this-day-icon" class="card-icon"></i>
+                    </div>
+                    <span id="this-day-temp" class="card-data">Temp: </span>
+                    <span id="this-day-wind" class="card-data">Wind: </span>
+                    <span id="this-day-humidity" class="card-data">Humidity: </span>
+                    <span id="this-day-uv" class="card-data">UV Index: </span>
+                </card>
+            </div>
+            <h3>5-Day Forecase:</h3>
+            <div class="forecast">
+                <card id="next-day" class="weather-card">
+                    <span id="next-day-date" class="card-date"></span>
+                    <i id="next-day-icon" class="card-icon"></i>
+                    <span id="next-day-temp" class="card-data">Temp: </span>
+                    <span id="next-day-wind" class="card-data">Wind: </span>
+                    <span id="next-day-humidity" class="card-data">Humidity:</span>
+                </card>
+                <card id="2-day" class="weather-card">
+                    <span id="2-day-date" class="card-date"></span>
+                    <i id="2-day-icon" class="card-icon"></i>
+                    <span id="2-day-temp" class="card-data">Temp: </span>
+                    <span id="2-day-wind" class="card-data">Wind: </span>
+                    <span id="2-day-humidity" class="card-data">Humidity: </span>
+                </card>
+                <card id="3-day" class="weather-card">
+                    <span id="3-day-date" class="card-date"></span>
+                    <i id="3-day-icon" class="card-icon"></i>
+                    <span id="3-day-temp" class="card-data">Temp: </span>
+                    <span id="3-day-wind" class="card-data">Wind: </span>
+                    <span id="3-day-humidity" class="card-data">Humidity: </span>
+                </card>
+                <card id="4-day" class="weather-card">
+                    <span id="4-day-date" class="card-date"></span>
+                    <i id="4-day-icon" class="card-icon"></i>
+                    <span id="4-day-temp" class="card-data">Temp: </span>
+                    <span id="4-day-wind" class="card-data">Wind: </span>
+                    <span id="4-day-humidity" class="card-data">Humidity: </span>
+                </card>
+                <card id="5-day" class="weather-card">
+                    <span id="5-day-date" class="card-date"></span>
+                    <i id="5-day-icon" class="card-icon"></i>
+                    <span id="5-day-temp" class="card-data">Temp: </span>
+                    <span id="5-day-wind" class="card-data">Wind: </span>
+                    <span id="5-day-humidity" class="card-data">Humidity: </span>
+                </card>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

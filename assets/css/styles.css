@@ -1,0 +1,97 @@
+* {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: rgb(0,105,182);
+    background: linear-gradient(90deg, rgba(0,105,182,1) 0%, rgba(0,37,126,1) 100%);
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search-column {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.city-input {
+    border: none;
+    overflow: none;
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: auto;
+    margin: 5px 0;
+    padding: 5px;
+    font-size: medium;
+    border: 1px solid grey;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.search-button {
+    width: 100%;
+    color: white;
+    padding: 5px;
+    background-color: rgb(50, 170, 250);
+    border: none;
+    border-radius: 3px;
+}
+
+.history-container {
+    margin-top: 5px;
+    border-top: 3px solid grey;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;    
+}
+
+.weather-content {
+    width: 78%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.daycast {
+    margin-bottom: 10px;
+    width: 100%;
+    border: 2px solid grey;
+}
+
+.forecast {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.weather-card-main {
+    padding: 2px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.weather-card {
+    padding: 2px;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: slategray;
+    border: 1px solid black;
+}
