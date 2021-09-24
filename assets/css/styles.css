@@ -66,21 +66,24 @@ main {
 }
 
 .daycast {
+    height: 250px;
     margin-bottom: 10px;
     width: 100%;
     border: 2px solid grey;
 }
 
 .forecast {
+    margin: 10px 0;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
 
-.weather-card-main {
+.main-weather-card {
     padding: 2px;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -89,9 +92,38 @@ main {
 .weather-card {
     padding: 2px;
     width: 18%;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background-color: slategray;
     border: 1px solid black;
+}
+
+.main-append-here {
+    display: flex;
+}
+
+.append-here {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-card-city {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.card-date {
+    font-weight: 600;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.main-card-data {
+    font-size: 1.1rem;
+    font-weight: 600;
 }

@@ -1,10 +1,18 @@
+/* UV Index:
+    0-2: low
+    3-5: moderate
+    6-7: high
+    8-10: very high
+    11+: extreme
+*/
 let cityName = "";
-let day = Date.prototype.getDate();
-let month = Date.prototype.getMonth();
-let year = Date.prototype.getFullYear();
-let date = month + "/" + day + "/" + year;
-console.log(date);
+let apiKey = "";
+let DateTime = luxon.DateTime;
+let now = DateTime.now();
+let today = now.month + "/" + now.day + "/" + now.year;
+console.log(today);
 
+// button click handler
 $(".search-button").on("click", function(event) {
     console.log("I was clicked.");
     cityName = $("#user-input").val().trim();
@@ -49,6 +57,7 @@ const apiForecastRequest = function(lat, lon) {
         + "&lon="
         + lon
         + "&exclude=minutely,hourly,alerts&units=imperial&appid="
+        + apiKey
     )
     .then(function(response) {
         if (response.ok) {
@@ -65,10 +74,53 @@ const apiForecastRequest = function(lat, lon) {
     });
 };
 
+// function to pull data out of the API response and assign values to elements
 const renderData = function(data) {
-    console.log("City Name: " + cityName);
-    console.log("Date: " + date);
-    console.log("Temp: " + data.current.temp)
-    console.log("Wind: " + data.current.wind_speed + "MPH");
-    console.log("Humidity: " + data.current.humidity + "%");
+    // iterate through the display cards
+    for (let i = 0; i < 6; i++) {
+        // for the "0-day" element
+        if (i === 0) {
+            // set city name and today's date
+            $("#0-day-city-date").text(cityName + " (" + today + ")");
+
+            // set img element's source to icon URL
+            $("#0-day-icon").remove();
+            let imageEl = $("<img>")
+                .attr("id", "0-day-icon")
+                .addClass("card-icon");
+            let imageURL = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png";
+            imageEl.attr("src", imageURL);
+            $("#0-day").children(".main-append-here").append(imageEl);
+
+            // set temp, wind, humidity, and uv index
+            $("#0-day-temp").text("Temp: " + data.current.temp + "\u00B0F");
+            $("#0-day-wind").text("Wind: " + data.current.wind_speed + " MPH");
+            $("#0-day-humidity").text("Humidity: " + data.current.humidity + " %");
+            let uvIndex = data.current.uvi;
+            $("#0-day-uv").text("UV Index: " + uvIndex);
+            if (uvIndex <= 2) {
+                $("0-day-uv")
+            }
+        }
+        // for the other #d elements
+        else {
+            // set new date
+            let newDate = now.plus({ days: i });
+            $("#" + i + "-day-date").text(newDate.month + "/" + newDate.day + "/" + newDate.year);
+
+            // set img element's source to icon URL
+            $("#" + i + "-day-icon").remove();
+            let imageEl = $("<img>")
+                .attr("id", i + "-day-icon")
+                .addClass("card-icon");
+            let imageURL = "http://openweathermap.org/img/wn/" + data.daily[i-1].weather[0].icon + ".png";
+            imageEl.attr("src", imageURL);
+            $("#" + i + "-day").children(".append-here").append(imageEl);
+
+            // set temp, wind, and humidity
+            $("#" + i + "-day-temp").text("Temp: " + data.daily[i-1].temp.day + "\u00B0F");
+            $("#" + i + "-day-wind").text("Wind: " + data.daily[i-1].wind_speed + " MPH");
+            $("#" + i + "-day-humidity").text("Humidity: " + data.daily[i-1].humidity + " %");
+        }
+    }
 }
