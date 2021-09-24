@@ -10,7 +10,6 @@ let apiKey = "";
 let DateTime = luxon.DateTime;
 let now = DateTime.now();
 let today = now.month + "/" + now.day + "/" + now.year;
-console.log(today);
 
 // button click handler
 $(".search-button").on("click", function(event) {

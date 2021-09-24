@@ -19,6 +19,7 @@ main {
     justify-content: space-around;
 }
 
+/* Search Column Styles */
 .search-column {
     width: 20%;
     display: flex;
@@ -59,6 +60,7 @@ main {
     justify-content: flex-start;    
 }
 
+/* Weather Content Styles - Daycast */
 .weather-content {
     width: 78%;
     display: flex;
@@ -72,14 +74,6 @@ main {
     border: 2px solid grey;
 }
 
-.forecast {
-    margin: 10px 0;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-}
-
 .main-weather-card {
     padding: 2px;
     width: 100%;
@@ -87,6 +81,29 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.main-card-city {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.main-append-here {
+    display: flex;
+}
+
+.main-card-data {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Weather Content Styles - 5-Day Forecast */
+.forecast {
+    margin: 10px 0;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .weather-card {
@@ -100,18 +117,9 @@ main {
     border: 1px solid black;
 }
 
-.main-append-here {
-    display: flex;
-}
-
 .append-here {
     display: flex;
     flex-direction: column;
-}
-
-.main-card-city {
-    font-size: 2rem;
-    font-weight: 700;
 }
 
 .card-date {
@@ -123,7 +131,4 @@ main {
     height: 50px;
 }
 
-.main-card-data {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
+/* ADD MEDIA QUERIES FOR RESPONSIVE WEBSITE */

@@ -13,6 +13,7 @@
     </header>
 
     <main>
+        <!-- Search Sidebar -->
         <sidebar class="search-column">
             <h2>Search for a City:</h2>
             <textarea id="user-input" class="city-input" placeholder="Enter a city name" rows="1"></textarea>
@@ -22,7 +23,9 @@
             </div>
         </sidebar>
 
+        <!-- Main Weather Content Block -->
         <section class="weather-content">
+            <!-- Today's Forecast -->
             <div class="daycast">
                 <card id="0-day" class="main-weather-card">
                     <div class="main-append-here">
@@ -34,54 +37,70 @@
                     <span id="0-day-uv" class="main-card-data">UV Index: </span>
                 </card>
             </div>
+
+            <!-- 5-Day Forecast -->
             <h3>5-Day Forecase:</h3>
             <div class="forecast">
+                <!-- Tomorrow -->
                 <card id="1-day" class="weather-card">
                     <div class="append-here">
                         <span id="1-day-date" class="card-date">(Date)</span>
                     </div>
-                    <span id="1-day-temp" class="card-data">Temp: </span>
-                    <span id="1-day-wind" class="card-data">Wind: </span>
-                    <span id="1-day-humidity" class="card-data">Humidity:</span>
+                    <span id="1-day-temp">Temp: </span>
+                    <span id="1-day-wind">Wind: </span>
+                    <span id="1-day-humidity">Humidity:</span>
                 </card>
+
+                <!-- Two Days Out -->
                 <card id="2-day" class="weather-card">
                     <div class="append-here">
                         <span id="2-day-date" class="card-date">(Date)</span>
                     </div>
-                    <span id="2-day-temp" class="card-data">Temp: </span>
-                    <span id="2-day-wind" class="card-data">Wind: </span>
-                    <span id="2-day-humidity" class="card-data">Humidity: </span>
+                    <span id="2-day-temp">Temp: </span>
+                    <span id="2-day-wind">Wind: </span>
+                    <span id="2-day-humidity">Humidity: </span>
                 </card>
+
+                <!-- Three Days Out -->
                 <card id="3-day" class="weather-card">
                     <div class="append-here">
                         <span id="3-day-date" class="card-date">(Date)</span>
                     </div>
-                    <span id="3-day-temp" class="card-data">Temp: </span>
-                    <span id="3-day-wind" class="card-data">Wind: </span>
-                    <span id="3-day-humidity" class="card-data">Humidity: </span>
+                    <span id="3-day-temp">Temp: </span>
+                    <span id="3-day-wind">Wind: </span>
+                    <span id="3-day-humidity">Humidity: </span>
                 </card>
+
+                <!-- Four Days Out -->
                 <card id="4-day" class="weather-card">
                     <div class="append-here">
                         <span id="4-day-date" class="card-date">(Date)</span>
                     </div>
-                    <span id="4-day-temp" class="card-data">Temp: </span>
-                    <span id="4-day-wind" class="card-data">Wind: </span>
-                    <span id="4-day-humidity" class="card-data">Humidity: </span>
+                    <span id="4-day-temp">Temp: </span>
+                    <span id="4-day-wind">Wind: </span>
+                    <span id="4-day-humidity">Humidity: </span>
                 </card>
+
+                <!-- Five Days Out -->
                 <card id="5-day" class="weather-card">
                     <div class="append-here">
                         <span id="5-day-date" class="card-date">(Date)</span>
                     </div>
-                    <span id="5-day-temp" class="card-data">Temp: </span>
-                    <span id="5-day-wind" class="card-data">Wind: </span>
-                    <span id="5-day-humidity" class="card-data">Humidity: </span>
+                    <span id="5-day-temp">Temp: </span>
+                    <span id="5-day-wind">Wind: </span>
+                    <span id="5-day-humidity">Humidity: </span>
                 </card>
             </div>
         </section>
     </main>
 
+    <!-- luxon CDN -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
+    
+    <!-- JQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <!-- My script -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
