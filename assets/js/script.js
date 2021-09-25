@@ -1,3 +1,5 @@
+let searchedCities = [];
+let cityId = 0;
 let cityName = "";
 let apiKey = "8e06cacfe4c21ba33aa0579afd1ec839";
 let DateTime = luxon.DateTime;
@@ -7,6 +9,14 @@ let today = now.month + "/" + now.day + "/" + now.year;
 // button click handler
 $(".search-button").on("click", function(event) {
     cityName = $("#user-input").val().trim();
+    if (cityName) {
+        apiCityRequest(cityName);
+    }
+});
+
+// button click handler
+$(".history-container").on("click", ".history-item", function(event) {
+    cityName = $(this).text().trim();
     if (cityName) {
         apiCityRequest(cityName);
     }
@@ -24,6 +34,8 @@ const apiCityRequest = function(cityName) {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
+                // as long as the city doesn't already exist in the array- add it
+                addCity(cityName);
                 let latitude = data.coord.lat;
                 let longitude = data.coord.lon;
                 apiForecastRequest(latitude, longitude);
@@ -133,3 +145,45 @@ const renderData = function(data) {
         }
     }
 }
+
+// adds a city to the searchedCities array and then calls the render function and save function
+const addCity = function(city) {
+    if (searchedCities.indexOf(city) === -1) {
+        searchedCities.push(city);
+        while (searchedCities.length > 10) {
+            searchedCities.splice(0, 1);
+        }
+        renderCities(searchedCities);
+        saveCities(searchedCities);
+    }
+}
+
+// renders the array of searched cities
+const renderCities = function(cityArr) {
+    let historyContainerEl = $(".history-container");
+    historyContainerEl.children().remove();
+    for (let i = 0; i < cityArr.length; i++) {
+        let cityEl = $("<div>")
+            .addClass("history-item")
+            .text(cityArr[i]);
+        historyContainerEl.append(cityEl);
+    }
+}
+
+// saves the array of searched cities in localStorage
+const saveCities = function(cityArr) {
+    localStorage.setItem("cities", JSON.stringify(cityArr));
+}
+
+// load the array of searched cities from localStorage
+const loadCities = function() {
+    searchedCities = JSON.parse(localStorage.getItem("cities"));
+    if (!searchedCities) {
+        searchedCities = [];
+    }
+    else {
+        renderCities(searchedCities);
+    }
+}
+
+loadCities();
