@@ -178,6 +178,36 @@ img {
     height: 50px;
 }
 
+.uv-low {
+    padding: 3px 15px;
+    background-color: green;
+    border-radius: 4px;
+}
+
+.uv-medium {
+    padding: 3px 15px;
+    background-color: yellow;
+    border-radius: 4px;
+}
+
+.uv-high {
+    padding: 3px 15px;
+    background-color: orangered;
+    border-radius: 4px;
+}
+
+.uv-very-high {
+    padding: 3px 15px;
+    background-color: red;
+    border-radius: 4px;
+}
+
+.uv-extreme {
+    padding: 3px 15px;
+    background-color: maroon;
+    border-radius: 4px;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1024px) {
     main {

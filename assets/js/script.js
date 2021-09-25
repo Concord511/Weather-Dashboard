@@ -32,6 +32,7 @@ const apiCityRequest = function(cityName) {
         + apiKey
     )
     .then(function(response) {
+        $("#user-input").val("");
         if (response.ok) {
             response.json().then(function(data) {
                 // as long as the city doesn't already exist in the array- add it
@@ -121,6 +122,7 @@ const renderData = function(data) {
             else if (uvIndex > 11) {
                 uvEl.addClass("uv-extreme");
             }
+            $("#0-day-uv").children().remove();
             $("#0-day-uv").append(uvEl);
         }
         // for the other #d elements
