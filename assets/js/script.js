@@ -13,11 +13,8 @@ let today = now.month + "/" + now.day + "/" + now.year;
 
 // button click handler
 $(".search-button").on("click", function(event) {
-    console.log("I was clicked.");
     cityName = $("#user-input").val().trim();
-    console.log(cityName);
     if (cityName) {
-        console.log("Making API Request with param: " + cityName);
         apiCityRequest(cityName);
     }
 });
@@ -29,6 +26,7 @@ const apiCityRequest = function(cityName) {
         "https://api.openweathermap.org/data/2.5/weather?q="
         + cityName
         + "&units=imperial&appid="
+        + apiKey
     )
     .then(function(response) {
         if (response.ok) {
@@ -95,11 +93,28 @@ const renderData = function(data) {
             $("#0-day-temp").text("Temp: " + data.current.temp + "\u00B0F");
             $("#0-day-wind").text("Wind: " + data.current.wind_speed + " MPH");
             $("#0-day-humidity").text("Humidity: " + data.current.humidity + " %");
-            let uvIndex = data.current.uvi;
-            $("#0-day-uv").text("UV Index: " + uvIndex);
+            
+            // Logic to remove all old classes and add new one!
+            
+            let uvEl = $("<span>");
+            let uvIndex = parseInt(data.current.uvi);
+            uvEl.text(uvIndex);
             if (uvIndex <= 2) {
-                $("0-day-uv")
+                uvEl.addClass("uv-low");
             }
+            else if (uvIndex > 2 && uvIndex <= 5) {
+                uvEl.addClass("uv-medium");
+            }
+            else if (uvIndex > 5 && uvIndex <= 7) {
+                uvEl.addClass("uv-high");
+            }
+            else if (uvIndex > 7 && uvIndex <= 11) {
+                uvEl.addClass("uv-very-high");
+            }
+            else if (uvIndex > 11) {
+                uvEl.addClass("uv-extreme");
+            }
+            $("#0-day-uv").append(uvEl);
         }
         // for the other #d elements
         else {
