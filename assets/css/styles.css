@@ -131,4 +131,68 @@ main {
     height: 50px;
 }
 
-/* ADD MEDIA QUERIES FOR RESPONSIVE WEBSITE */
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    .forecast {
+        justify-content: space-around;
+    }
+    
+    .search-column {
+        margin-bottom: 15px;
+        width: 70%;
+    }
+
+    .weather-card {
+        margin: 15px 0;
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+        align-self: center;
+    }
+
+    .search-column {
+        margin-bottom: 15px;
+        width: 95%;
+    }
+
+    .weather-content {
+        width: 95%;
+        justify-content: center;
+    }
+
+    .weather-card {
+        margin: 15px 0;
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-card-city {
+        font-size: 1.5rem;
+        font-weight: 700;
+        width: auto;
+    }
+
+    .forecast {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-card {
+        margin: 15px 0;
+        width: 50%;
+    }
+}

@@ -1,10 +1,3 @@
-/* UV Index:
-    0-2: low
-    3-5: moderate
-    6-7: high
-    8-10: very high
-    11+: extreme
-*/
 let cityName = "";
 let apiKey = "8e06cacfe4c21ba33aa0579afd1ec839";
 let DateTime = luxon.DateTime;
@@ -37,7 +30,9 @@ const apiCityRequest = function(cityName) {
             });
         }
         else {
-            console.log("Error: " + response);
+            response.json().then(function(data) {
+                alert("Error: " + data.message);
+            })
         }
     })
     .catch(function(error) {
