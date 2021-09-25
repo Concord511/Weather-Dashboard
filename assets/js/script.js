@@ -6,7 +6,7 @@
     11+: extreme
 */
 let cityName = "";
-let apiKey = "";
+let apiKey = "8e06cacfe4c21ba33aa0579afd1ec839";
 let DateTime = luxon.DateTime;
 let now = DateTime.now();
 let today = now.month + "/" + now.day + "/" + now.year;
