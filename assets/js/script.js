@@ -136,7 +136,7 @@ const renderData = function(data) {
             let imageEl = $("<img>")
                 .attr("id", i + "-day-icon")
                 .addClass("card-icon");
-            let imageURL = "http://openweathermap.org/img/wn/" + data.daily[i-1].weather[0].icon + ".png";
+            let imageURL = "https://openweathermap.org/img/wn/" + data.daily[i-1].weather[0].icon + ".png";
             imageEl.attr("src", imageURL);
             $("#" + i + "-day").children(".append-here").append(imageEl);
 
